@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"/>
+    <title>大列表测试</title>
+</head>
+<body>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
+<script>
+    if (/iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent)) {
+        var search = {};
+        if (location.search.indexOf('?') >= 0 && location.search.indexOf('&') >= 0) {
+            var searchs = location.search.split('?')[1].split('&');
+            for (var i = 0; i < searchs.length; i++) {
+                var arr = searchs[i].split('=');
+                search[arr[0]] = arr[1];
+            }
+        }
+        search.d = search.d || '';
+        document.write('<script type="text/javascript" src="' + search.d + 'www/cordova.js"><\/script>');
+    } else if (/Android/i.test(navigator.userAgent)) {
+        document.write('<script type="text/javascript" src="file:///android_asset/www/cordova.js"><\/script>');
+    }
+</script>
+</html>
